@@ -11,6 +11,6 @@ album1 = Album.new({'title' => 'underclass hero',
                     'artist_id' => artist1.id
                    });
 album1.save()
-Artist.all()
+
 binding.pry
 nil
