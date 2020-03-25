@@ -15,4 +15,14 @@ class Artist
     values = [@name]
     @id = SqlRunner.run(sql,values)[0]["id"].to_i
   end
+
+  def Artist.all()
+    sql = "SELECT * FROM artists"
+    array_of_artists = SqlRunner.run(sql, [])
+    return array_of_artists.map {|artist| Artist.new(artist)}
+  end
+
+
+
+
 end

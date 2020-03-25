@@ -18,7 +18,11 @@ attr_reader :id
     @id = SqlRunner.run(sql,values)[0]["id"].to_i
   end
 
-
+  def Album.all()
+    sql = "SELECT * FROM albums"
+    array_of_albums = SqlRunner.run(sql, [])
+    return array_of_albums.map {|album| Album.new(album)}
+  end
 
 
 end
