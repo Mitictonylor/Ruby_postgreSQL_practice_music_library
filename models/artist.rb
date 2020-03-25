@@ -25,16 +25,21 @@ class Artist
   def Artist.find_artist_by_album(album_id)
     sql= "SELECT artist_id FROM albums WHERE id = $1"
     values = [album_id]
-    orders = SqlRunner.run(sql,values)
-    return orders.map{|artist| Album.new(artist)}
+    # orders = SqlRunner.run(sql,values)
+    orders = SqlRunner.run(sql,values)[0]["artist_id"]
+    return orders
+    # .map{|artist| Album.new(artist)}
   end
 
   def update()
-    sql = " UPDATE artists SET (name) =
-    ($1)
-    WHERE id = $2"
-    values = [@name,@id]
+    sql = " UPDATE artists SET name = $1 WHERE id = $2"
+    values = [@name, @id]
     SqlRunner.run(sql,values)
   end
 
+  def delete()
+    sql = "DELETE FROM artists where id = $1"
+    values = [@id]
+    SqlRunner.run(sql,values)
+  end
 end

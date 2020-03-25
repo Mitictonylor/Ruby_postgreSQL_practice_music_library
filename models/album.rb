@@ -31,8 +31,18 @@ attr_reader :id
     return Album.new(album_hash)
   end
 
-
-
+  def update()
+    sql = " UPDATE albums SET (album_id,title,genre) =
+    ($1, $2, $3)
+    WHERE id = $4"
+    values = [@album_id, @title, @genre, @id]
+    SqlRunner.run(sql,values)
+  end
+  def delete()
+    sql = "DELETE FROM albums where id = $1"
+    values = [@id]
+    SqlRunner.run(sql,values)
+  end
 
 
 
