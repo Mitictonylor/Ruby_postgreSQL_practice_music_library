@@ -46,7 +46,16 @@ class Artist
   def Artist.find_by_id(id)
     sql= "SELECT * FROM artists WHERE id = $1"
     values = [id]
-    artist = SqlRunner.run(sql,values).first
-    return Artist.new(artist)
+    artist = SqlRunner.run(sql,values)
+    return Artist.new(artist.first)
+  end
+
+  def get_albums()
+    sql = "SELECT * FROM albums
+    WHERE artist_id = $1"
+    values = [@id]
+    albums = SqlRunner.run( sql, values )
+    result = albums.map { |album_hash| Album.new( album_hash ) }
+    return result
   end
 end
