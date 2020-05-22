@@ -3,6 +3,10 @@ Homework to practice PostgreSQL and ruby
 
 # Music Collection
 
+<<<<<<< HEAD
+=======
+This exercise was tasked to me by CodeClan, Glasgow where I studied towards a PDA Level 8 in Professional Software Development. The exercise brief can be found below.
+>>>>>>> e4cc1d6e93715034b763dddff4a0d56e7de0de81
 
 **Brief**
 
